@@ -1,0 +1,467 @@
+/* San Martino di Tours — foglio di stile
+   Palette: verde bosco, rosso del mantello, oro; fondo verde salvia chiaro. */
+
+:root {
+  --carta: #e9efe3;
+  --carta-2: #d9e3d0;
+  --inchiostro: #1f2623;
+  --tenue: #56635c;
+  --verde: #2a5446;
+  --verde-scuro: #17322a;
+  --oro: #b08a3c;
+  --oro-chiaro: #d9bd7a;
+  --linea: #c3d0b9;
+  --mantello: #a8322b;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --maiuscole: "Optima", "Gill Sans", "Trebuchet MS", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--carta);
+  color: var(--inchiostro);
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--verde); text-underline-offset: 3px; }
+a:hover { color: var(--mantello); }
+
+/* ---------- Testata ---------- */
+
+.testata {
+  background: var(--verde-scuro);
+  color: var(--carta);
+  border-bottom: 3px solid var(--oro);
+}
+
+.testata-interno {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0.9rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+}
+
+.marchio {
+  color: var(--carta);
+  text-decoration: none;
+  font-family: var(--maiuscole);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.marchio:hover { color: var(--oro-chiaro); }
+.marchio svg { width: 26px; height: 26px; flex: none; }
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--maiuscole);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.menu a {
+  color: #dbe6d6;
+  text-decoration: none;
+  padding: 0.3rem 0;
+  border-bottom: 2px solid transparent;
+}
+.menu a:hover,
+.menu a[aria-current="page"] {
+  color: var(--oro-chiaro);
+  border-bottom-color: var(--oro);
+}
+
+/* ---------- Fascia a mosaico ---------- */
+
+.mosaico {
+  height: 14px;
+  background:
+    repeating-linear-gradient(45deg, var(--oro) 0 7px, transparent 7px 14px),
+    repeating-linear-gradient(-45deg, var(--mantello) 0 7px, var(--carta-2) 7px 14px);
+  opacity: 0.85;
+}
+
+/* ---------- Copertina (home) ---------- */
+
+.copertina {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(217, 189, 122, 0.22), transparent 60%),
+    linear-gradient(var(--verde-scuro), var(--verde));
+  color: var(--carta);
+  text-align: center;
+  padding: 4.5rem 1.25rem 4rem;
+}
+.copertina .sopratitolo {
+  font-family: var(--maiuscole);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--oro-chiaro);
+  margin: 0 0 1.2rem;
+}
+.copertina h1 {
+  font-size: clamp(2.6rem, 8vw, 5.2rem);
+  line-height: 1.05;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+.copertina .date {
+  font-style: italic;
+  color: #dbe6d6;
+  margin: 1rem 0 0;
+}
+.copertina blockquote {
+  max-width: 40rem;
+  margin: 2.5rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(217, 189, 122, 0.5);
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+.copertina cite {
+  display: block;
+  margin-top: 0.8rem;
+  font-style: normal;
+  font-family: var(--maiuscole);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--oro-chiaro);
+}
+
+/* ---------- Titolo delle pagine interne ---------- */
+
+.titolo-pagina {
+  background: linear-gradient(var(--verde-scuro), var(--verde));
+  color: var(--carta);
+  padding: 3rem 1.25rem 2.6rem;
+  text-align: center;
+}
+.titolo-pagina .sopratitolo {
+  font-family: var(--maiuscole);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--oro-chiaro);
+  margin: 0 0 0.8rem;
+}
+.titolo-pagina h1 {
+  font-size: clamp(2rem, 5.5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0;
+}
+.titolo-pagina p.occhiello {
+  max-width: 38rem;
+  margin: 1rem auto 0;
+  font-style: italic;
+  color: #dbe6d6;
+}
+
+/* ---------- Contenuto ---------- */
+
+main { display: block; }
+
+.colonna {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+}
+.larga { max-width: 1080px; }
+
+.colonna h2 {
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: var(--verde);
+  line-height: 1.25;
+  margin: 3rem 0 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--linea);
+}
+.colonna h2:first-child { margin-top: 0; }
+.colonna h3 {
+  font-family: var(--maiuscole);
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--oro);
+  margin: 2rem 0 0.4rem;
+}
+.colonna p { margin: 0 0 1.1rem; }
+
+.capolettera::first-letter {
+  float: left;
+  font-size: 4.2rem;
+  line-height: 0.82;
+  padding: 0.35rem 0.5rem 0 0;
+  color: var(--mantello);
+}
+
+.citazione {
+  margin: 2rem 0;
+  padding: 1.3rem 1.5rem;
+  background: var(--carta-2);
+  border-left: 4px solid var(--oro);
+  font-style: italic;
+}
+.citazione p { margin: 0; }
+.citazione .latino {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--tenue);
+  margin-top: 0.6rem;
+}
+.citazione cite {
+  display: block;
+  margin-top: 0.7rem;
+  font-style: normal;
+  font-family: var(--maiuscole);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+
+.nota {
+  margin: 2rem 0;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid var(--linea);
+  border-top: 3px solid var(--mantello);
+  background: #f4f8ef;
+  font-size: 1rem;
+}
+.nota h3 { margin-top: 0; }
+.nota p:last-child, .nota ul:last-child { margin-bottom: 0; }
+.nota ul { padding-left: 1.2rem; margin: 0 0 1rem; }
+.nota li { margin-bottom: 0.4rem; }
+
+/* ---------- Immagini ---------- */
+
+.figura { margin: 2.2rem 0; }
+.figura img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--linea);
+  box-shadow: 0 6px 20px rgba(23, 50, 42, 0.15);
+}
+.figura figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--tenue);
+  font-style: italic;
+}
+.figura.stretta { max-width: 26rem; margin-left: auto; margin-right: auto; }
+.figura.destra {
+  float: right;
+  width: 15rem;
+  margin: 0.4rem 0 1rem 1.8rem;
+}
+.figura.destra img { border: 0; box-shadow: none; }
+.figura.ampia { margin-top: 3rem; }
+
+@media (max-width: 640px) {
+  .figura.destra { float: none; width: 13rem; margin: 0 auto 1.5rem; }
+}
+
+.figura.media { max-width: 36rem; margin-left: auto; margin-right: auto; }
+
+.coppia {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  align-items: start;
+  margin: 2.2rem 0;
+}
+.coppia .figura { margin: 0; }
+@media (max-width: 560px) { .coppia { grid-template-columns: 1fr; } }
+
+.versi {
+  margin: 2rem auto;
+  padding: 1.4rem 1.6rem;
+  max-width: 24rem;
+  background: var(--carta-2);
+  border-left: 4px solid var(--mantello);
+  font-style: italic;
+  line-height: 1.55;
+}
+.versi p { margin: 0 0 1rem; }
+.versi p:last-of-type { margin-bottom: 0; }
+.versi cite {
+  display: block;
+  margin-top: 0.9rem;
+  font-style: normal;
+  font-family: var(--maiuscole);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+
+.luoghi { list-style: none; margin: 1.2rem 0 2rem; padding: 0; }
+.luoghi li {
+  padding: 0.9rem 0 0.9rem 1.1rem;
+  border-left: 3px solid var(--oro);
+  margin-bottom: 0.9rem;
+  background: #f4f8ef;
+}
+.luoghi strong { color: var(--verde); }
+
+/* ---------- Schede (home) ---------- */
+
+.schede {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.25rem;
+  margin: 2.5rem 0 0;
+}
+.scheda {
+  display: block;
+  padding: 1.5rem 1.4rem 1.6rem;
+  background: #f4f8ef;
+  border: 1px solid var(--linea);
+  border-top: 3px solid var(--oro);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.scheda:hover {
+  color: inherit;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(23, 50, 42, 0.13);
+}
+.scheda .numero {
+  font-family: var(--maiuscole);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--oro);
+}
+.scheda h2 {
+  border: 0;
+  margin: 0.3rem 0 0.5rem;
+  padding: 0;
+  font-size: 1.4rem;
+}
+.scheda p { margin: 0; font-size: 1rem; line-height: 1.55; color: var(--tenue); }
+
+.dati {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1rem;
+  margin: 3rem 0 0;
+  padding: 1.6rem 0;
+  border-top: 1px solid var(--linea);
+  border-bottom: 1px solid var(--linea);
+  text-align: center;
+}
+.dati dt {
+  font-family: var(--maiuscole);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+.dati dd { margin: 0.2rem 0 0; font-size: 1.15rem; color: var(--verde); }
+
+/* ---------- Cronologia ---------- */
+
+.cronologia {
+  list-style: none;
+  margin: 1.5rem 0 2rem;
+  padding: 0;
+  border-left: 2px solid var(--oro);
+}
+.cronologia li {
+  position: relative;
+  padding: 0 0 1.3rem 1.6rem;
+}
+.cronologia li::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0.55rem;
+  width: 12px;
+  height: 12px;
+  background: var(--carta);
+  border: 2px solid var(--verde);
+  transform: rotate(45deg);
+}
+.cronologia li.martino::before { background: var(--mantello); border-color: var(--mantello); }
+.cronologia .anno {
+  display: block;
+  font-family: var(--maiuscole);
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  color: var(--verde);
+  font-weight: 600;
+}
+
+/* ---------- Navigazione fra le pagine ---------- */
+
+.prosegui {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--linea);
+  font-family: var(--maiuscole);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.prosegui a { text-decoration: none; }
+.prosegui .avanti { margin-left: auto; }
+
+/* ---------- Piè di pagina ---------- */
+
+.piede {
+  background: var(--verde-scuro);
+  color: #b9c9bd;
+  text-align: center;
+  padding: 2.2rem 1.25rem 2.5rem;
+  font-size: 0.9rem;
+}
+.piede p { margin: 0.3rem 0; }
+.piede .motto {
+  font-style: italic;
+  color: var(--oro-chiaro);
+  font-size: 1.05rem;
+}
+
+@media (max-width: 640px) {
+  body { font-size: 1.05rem; }
+  .testata-interno { justify-content: center; text-align: center; }
+  .menu { justify-content: center; }
+  .copertina { padding: 3rem 1.25rem; }
+  .copertina blockquote { font-size: 1.15rem; }
+}
+
+@media print {
+  .testata, .mosaico, .prosegui, .piede { display: none; }
+  .copertina, .titolo-pagina { background: none; color: #000; padding: 1rem 0; }
+  body { background: #fff; }
+}
